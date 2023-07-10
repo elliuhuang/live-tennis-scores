@@ -7,11 +7,11 @@ Despite the ubiquity of professional tennis matches around the world, it's a sha
 This app aims to solve that problem by providing a unified platform for browsing live scores for current ATP and Challenger tournaments, upcoming matches with a time zone converter, and past scores and draws of current tournaments. It will be easier to see our favorite Alcaraz's next blitzkreig, Tsitsipas's shank-fest, or Djodal's free tennis lessons for the next-next-next gen. 
 
 ## Features
-- displays score for first tennis tournament that appears on sofascores.com
+- displays all live scores of all tennis tournaments globally (Grand slams, ATP, WTA, Challenger, ITF)
 - updates upon refreshing page
 
 ## To-do
-- display scores for all current tennis tournaments
-- query from flashscores.com? 
+- display scores for past tournaments in the week
 - add sidebar of current tournaments
 - css styling
+- add player's country flag
