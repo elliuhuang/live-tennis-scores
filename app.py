@@ -31,15 +31,37 @@ def get_live_scores():
 
     requests.request("GET", url, data=payload, headers=headers)
     json_data = json.loads(response.text)
-    live_scores = {
-        'tournament_type': json_data['events'][0]['tournament']['category']['name'],
-        'tournament': json_data['events'][0]['tournament']['name'], 
-        'player1': json_data['events'][0]['homeTeam']['name'], 
-        'player2': json_data['events'][0]['awayTeam']['name'], 
-        'player1set1': json_data['events'][0]['homeScore']['period1'], 
-        'player2set1': json_data['events'][0]['awayScore']['period1']
-    }
-    print(live_scores)
+
+    live_scores = []
+    for match in json_data['events']:
+        score = {'tournament_type': match['tournament']['category']['name'], 
+                 'tournament': match['tournament']['name'], 
+                 'player1': match['homeTeam']['name'], 
+                 'player2': match['awayTeam']['name'], 
+                 'player1set1': match['homeScore']['period1'], 
+                 'player2set1': match['awayScore']['period1']
+        }
+        live_scores.append(score)
+    # live_scores = {
+    #     'tournament_type': tournament_type,
+    #     'tournament': tournament, 
+    #     'player1': player1, 
+    #     'player2': player2, 
+    #     #'player1set1': player1set1, 
+    #     #'player2set1': player2set1
+    # }
+
+    # live_scores = [ 
+    #     {'tournament_type': json_data['events'][0]['tournament']['category']['name'], 
+    #      'tournament': json_data['events'][0]['tournament']['name'], 
+    #      'player1': json_data['events'][0]['homeTeam']['name'], 
+    #      'player2': json_data['events'][0]['awayTeam']['name'] }, 
+    #     {'tournament_type': json_data['events'][1]['tournament']['category']['name'], 
+    #      'tournament': json_data['events'][1]['tournament']['name'], 
+    #      'player1': json_data['events'][1]['homeTeam']['name'], 
+    #      'player2': json_data['events'][1]['awayTeam']['name'] }
+    #     ]
+    # print(live_scores)
 
     '''
     for match in json_data['events']:

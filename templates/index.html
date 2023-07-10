@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Live tennis scores!</title>
+    <title>Live tennis scores</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
   <section class="hero is-dark is-bold">
@@ -20,9 +20,11 @@
   <section class="section">
     <div class="container">
         <div class="content is-large"> 
-            <h1> {{ live_scores.tournament_type }} {{ live_scores.tournament }}</h1>
-            <h4> {{ live_scores.player1 }} vs {{ live_scores.player2 }} </h4> 
-            <h4> {{ live_scores.player1set1 }} - {{ live_scores.player2set1 }}</h4>
+          {% for match in live_scores %}
+            <h1> {{ match['tournament_type'] }} {{ match['tournament'] }} </h1>
+            <h4> {{ match['player1'] }} vs {{ match['player2'] }} </h4> 
+            <h4> {{ match['player1set1'] }} - {{ match['player2set1'] }}</h4>
+          {% endfor %}
         </div>
     </div>
   </section>

@@ -1,4 +1,4 @@
-#!/Users/elliuhuang/Desktop/Github/live-tennis-scores/flaskapp/bin/python3
+#!/Users/elliuhuang/Desktop/Github/live-tennis-scores/flaskapp/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
