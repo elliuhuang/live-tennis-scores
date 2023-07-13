@@ -23,7 +23,36 @@
           {% for match in live_scores %}
             <h1> {{ match['tournament_type'] }} {{ match['tournament'] }} </h1>
             <h4> {{ match['player1'] }} vs {{ match['player2'] }} </h4> 
-            <h4> {{ match['player1set1'] }} - {{ match['player2set1'] }}</h4>
+            <table>
+              <tbody>
+                <tr> {{ match['player1set1']}} - {{ match['player2set1']}} </tr>
+                {% if match['player1set2'] != -1: %} 
+                  <tr> {{ match['player1set2'] }} - {{ match['player2set2'] }} </tr>
+                {% endif %}
+                {% if match['player1set3'] != -1: %} 
+                  <tr> {{ match['player1set3'] }} - {{ match['player2set3'] }} </tr>
+                {% endif %}
+                {% if match['player1set4'] != -1: %} 
+                  <tr> {{ match['player1set4'] }} - {{ match['player2set4'] }} </tr>
+                {% endif %}
+                {% if match['player1set5'] != -1: %} 
+                  <tr> {{ match['player1set5'] }} - {{ match['player2set5'] }} </tr>
+                {% endif %}
+              </tbody>
+            </table>
+            <!-- <h4> {{ match['player1set1']}} - {{ match['player2set1']}} </h4>
+            {% if match['player1set2'] != -1: %} 
+              <h4> {{ match['player1set2'] }} - {{ match['player2set2'] }} </h4>
+            {% endif %}
+            {% if match['player1set3'] != -1: %} 
+              <h4> {{ match['player1set3'] }} - {{ match['player2set3'] }} </h4>
+            {% endif %}
+            {% if match['player1set4'] != -1: %} 
+              <h4> {{ match['player1set4'] }} - {{ match['player2set4'] }} </h4>
+            {% endif %}
+            {% if match['player1set5'] != -1: %} 
+              <h4> {{ match['player1set5'] }} - {{ match['player2set5'] }} </h4>
+            {% endif %} -->
           {% endfor %}
         </div>
     </div>

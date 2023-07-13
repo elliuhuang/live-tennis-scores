@@ -39,29 +39,46 @@ def get_live_scores():
                  'player1': match['homeTeam']['name'], 
                  'player2': match['awayTeam']['name'], 
                  'player1set1': match['homeScore']['period1'], 
-                 'player2set1': match['awayScore']['period1']
+                 'player2set1': match['awayScore']['period1'], 
+                 'player1set2': -1,
+                 'player2set2': -1,
+                 'player1set3': -1,
+                 'player2set3': -1,
+                 'player1set4': -1,
+                 'player2set4': -1,
+                 'player1set5': -1,
+                 'player2set5': -1
         }
-        live_scores.append(score)
-    # live_scores = {
-    #     'tournament_type': tournament_type,
-    #     'tournament': tournament, 
-    #     'player1': player1, 
-    #     'player2': player2, 
-    #     #'player1set1': player1set1, 
-    #     #'player2set1': player2set1
-    # }
-
-    # live_scores = [ 
-    #     {'tournament_type': json_data['events'][0]['tournament']['category']['name'], 
-    #      'tournament': json_data['events'][0]['tournament']['name'], 
-    #      'player1': json_data['events'][0]['homeTeam']['name'], 
-    #      'player2': json_data['events'][0]['awayTeam']['name'] }, 
-    #     {'tournament_type': json_data['events'][1]['tournament']['category']['name'], 
-    #      'tournament': json_data['events'][1]['tournament']['name'], 
-    #      'player1': json_data['events'][1]['homeTeam']['name'], 
-    #      'player2': json_data['events'][1]['awayTeam']['name'] }
-    #     ]
-    # print(live_scores)
+        try:
+            score['player1set2'] = match['homeScore']['period2']
+        except:
+            pass
+        else:
+            score['player2set2'] = match['awayScore']['period2']
+            score['player1set2'] = match['homeScore']['period2']
+        try:
+            score['player1set3'] = match['homeScore']['period3']
+        except:
+            pass
+        else:
+            score['player1set3'] = match['homeScore']['period3']
+            score['player2set3'] = match['awayScore']['period3']
+        try:
+            score['player1set4'] = match['homeScore']['period4']
+        except:
+            pass
+        else:
+            score['player1set4'] = match['homeScore']['period4']
+            score['player2set4'] = match['awayScore']['period4']
+        try:
+            score['player1set5'] = match['homeScore']['period5']
+        except:
+            pass
+        else:
+            score['player1set5'] = match['homeScore']['period5']
+            score['player2set5'] = match['awayScore']['period5']
+        finally: 
+            live_scores.append(score)
 
     '''
     for match in json_data['events']:
