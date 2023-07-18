@@ -32,12 +32,16 @@ def get_live_scores():
     requests.request("GET", url, data=payload, headers=headers)
     json_data = json.loads(response.text)
 
-    live_scores = []
+    live_scores = {}
     for match in json_data['events']:
-        score = {'tournament_type': match['tournament']['category']['name'], 
-                 'tournament': match['tournament']['name'], 
+        tournament = match['tournament']['category']['name'] + " " + match['tournament']['name']
+        score = {
+                #  'tournament_type': match['tournament']['category']['name'], 
+                #  'tournament': match['tournament']['name'], 
                  'player1': match['homeTeam']['name'], 
+                 'player1cc': "",
                  'player2': match['awayTeam']['name'], 
+                 'player2cc': "",
                  'player1set1': match['homeScore']['period1'], 
                  'player2set1': match['awayScore']['period1'], 
                  'player1set2': -1,
@@ -49,6 +53,11 @@ def get_live_scores():
                  'player1set5': -1,
                  'player2set5': -1
         }
+        try: 
+            score['player1cc'] = "https://flagcdn.com/w20/" + match['homeTeam']['country']['alpha2'].lower() + ".png"
+            score['player2cc'] = "https://flagcdn.com/w20/" + match['awayTeam']['country']['alpha2'].lower() + ".png"
+        except:
+            pass
         try:
             score['player1set2'] = match['homeScore']['period2']
         except:
@@ -78,7 +87,10 @@ def get_live_scores():
             score['player1set5'] = match['homeScore']['period5']
             score['player2set5'] = match['awayScore']['period5']
         finally: 
-            live_scores.append(score)
+            if (tournament in live_scores.keys()):
+                live_scores[tournament].append(score)
+            else:
+                live_scores[tournament] = [score]
 
     '''
     for match in json_data['events']:

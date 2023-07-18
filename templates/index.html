@@ -20,39 +20,54 @@
   <section class="section">
     <div class="container">
         <div class="content is-large"> 
-          {% for match in live_scores %}
-            <h1> {{ match['tournament_type'] }} {{ match['tournament'] }} </h1>
-            <h4> {{ match['player1'] }} vs {{ match['player2'] }} </h4> 
-            <table>
-              <tbody>
-                <tr> {{ match['player1set1']}} - {{ match['player2set1']}} </tr>
-                {% if match['player1set2'] != -1: %} 
-                  <tr> {{ match['player1set2'] }} - {{ match['player2set2'] }} </tr>
-                {% endif %}
-                {% if match['player1set3'] != -1: %} 
-                  <tr> {{ match['player1set3'] }} - {{ match['player2set3'] }} </tr>
-                {% endif %}
-                {% if match['player1set4'] != -1: %} 
-                  <tr> {{ match['player1set4'] }} - {{ match['player2set4'] }} </tr>
-                {% endif %}
-                {% if match['player1set5'] != -1: %} 
-                  <tr> {{ match['player1set5'] }} - {{ match['player2set5'] }} </tr>
-                {% endif %}
-              </tbody>
-            </table>
-            <!-- <h4> {{ match['player1set1']}} - {{ match['player2set1']}} </h4>
-            {% if match['player1set2'] != -1: %} 
-              <h4> {{ match['player1set2'] }} - {{ match['player2set2'] }} </h4>
-            {% endif %}
-            {% if match['player1set3'] != -1: %} 
-              <h4> {{ match['player1set3'] }} - {{ match['player2set3'] }} </h4>
-            {% endif %}
-            {% if match['player1set4'] != -1: %} 
-              <h4> {{ match['player1set4'] }} - {{ match['player2set4'] }} </h4>
-            {% endif %}
-            {% if match['player1set5'] != -1: %} 
-              <h4> {{ match['player1set5'] }} - {{ match['player2set5'] }} </h4>
-            {% endif %} -->
+          {% for tournament in live_scores.keys() %}
+            <h1> {{ tournament }} </h1>
+            {% for match in live_scores[tournament] %}
+              <table class="table is-hoverable">
+                <tbody>
+                  <tr>
+                    {% if match['player1cc'] == "" %}
+                      <td> {{ match['player1'] }} </td>
+                    {% else %}
+                      <td> <img src="{{ match['player1cc'] }}" alt="{{ match['player1'] }}"> {{ match['player1'] }} </td>
+                    {% endif %}
+                    <td> {{ match['player1set1']}} </td>
+                    {% if match['player1set2'] != -1: %} 
+                      <td> {{ match['player1set2'] }} </td>
+                    {% endif %}
+                    {% if match['player1set3'] != -1: %} 
+                      <td> {{ match['player1set3'] }} </td>
+                    {% endif %}
+                    {% if match['player1set4'] != -1: %} 
+                      <td> {{ match['player1set4'] }} </td>
+                    {% endif %}
+                    {% if match['player1set5'] != -1: %} 
+                      <td> {{ match['player1set5'] }} </td>
+                    {% endif %}
+                  </tr>
+                  <tr>
+                    {% if match['player2cc'] == "" %}
+                      <td> {{ match['player2'] }} </td>
+                    {% else %}
+                      <td> <img src="{{ match['player2cc'] }}" alt="{{ match['player2'] }}"> {{ match['player2'] }} </td>
+                    {% endif %}
+                    <td> {{ match['player2set1']}} </td>
+                    {% if match['player2set2'] != -1: %} 
+                      <td> {{ match['player2set2'] }} </td>
+                    {% endif %}
+                    {% if match['player2set3'] != -1: %} 
+                      <td> {{ match['player2set3'] }} </td>
+                    {% endif %}
+                    {% if match['player2set4'] != -1: %} 
+                      <td> {{ match['player2set4'] }} </td>
+                    {% endif %}
+                    {% if match['player2set5'] != -1: %} 
+                      <td> {{ match['player2set5'] }} </td>
+                    {% endif %}
+                  </tr>
+                </tbody>
+              </table>
+            {% endfor %}
           {% endfor %}
         </div>
     </div>
