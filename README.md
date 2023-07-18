@@ -1,10 +1,10 @@
 # Live-tennis-scores
 
 ## Motivation
-Despite the ubiquity of professional tennis matches around the world, it's a shame that there is no unified platform for checking live tennis scores. Googling live scores of current ATP Tour level tournaments is sometimes a pain as we have to type the exact name of the tournament (good luck with 's-Hertogenbosch Open). And forget remembering all the ATP Challenger level tournaments where they may be as many as 7 different Challenger tournaments happening in the same week. Even when we successfully Google scores for tennis tournaments, scheduled matches are always shown in local time. Arithmetic is  hard, and no one wants to memorize all the time zone conversions. 
+From the coasts of Australia to the peaks of Sweden, hundreds of professional tennis matches happen every day around the world. Unfortunately, there's no unified platform for checking all these tennis scores other than betting websites. However, they are tailored toward other sports, such as football (soccer), cricket, and basketball. Betting sites fail to integrate other features avid tennis fans might want to see, such as H2H, random trivia, and the ability to follow certain players. 
 \
 \
-This app aims to solve that problem by providing a unified platform for browsing live scores for current ATP and Challenger tournaments, upcoming matches with a time zone converter, and past scores and draws of current tournaments. It will be easier to see our favorite Alcaraz's next blitzkreig, Tsitsipas's shank-fest, or Djodal's free tennis lessons for the next-next-next gen. 
+This website aims to solve that problem by providing a unified platform for browsing live scores for current ATP, WTA, Challenger, and ITF tournaments, scheduled matches, and past scores and draws of current tournaments. It will be easier to follow our favorite Alcaraz's next showdowns, Tsitsipas's shank-fest, Medvedev's verbal tirades, and Djokovic's sleepwalk to the final. 
 
 ## Features
 - displays all live scores of all tennis tournaments globally (Grand slams, ATP, WTA, Challenger, ITF)
@@ -14,4 +14,6 @@ This app aims to solve that problem by providing a unified platform for browsing
 - display scores for past tournaments in the week
 - add sidebar of current tournaments
 - css styling
-- add player's country flag
+- deal with doubles edge case
+- cache the requests for every 30 mins
+- implement the livescores api for matches in past week
