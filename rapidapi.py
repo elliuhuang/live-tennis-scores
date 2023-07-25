@@ -54,16 +54,3 @@ def live_scores():
 # with open("livescores.json", 'w') as outfile: 
 #     outfile.write(json_object)
 
-'''for match in json_data['events']:
-    tournament_type = match['tournament']['category']['name']
-    tournament = match['tournament']['name']
-    player1 = match['homeTeam']['name']
-    player2 = match['awayTeam']['name']
-    player1set1 = match['homeScore']['period1']
-    player2set1 = match['awayScore']['period1']
-    try:
-        player1set2 = match['homeScore']['period2']
-        player2set2 = match['homeScore']['period2']
-        print(tournament_type, "|", tournament, "|", player1, player1set1, "-", player2set1, player1set2, "-", player2set2, player2)
-    except:
-        print(tournament_type, "|", tournament, "|", player1, player1set1, "-", player2set1, player2)'''
